@@ -10,8 +10,14 @@
 // +----------------------------------------------------------------------
 use think\facade\Route;
 
-Route::get('think', function () {
-    return 'hello,ThinkPHP6!';
+// adminapi子域名路由指定
+Route::domain('localadminapi',function () {
+    Route::rule('/:pathInfo', '/admin.:pathInfo')->pattern(['pathInfo'=>'[\w\.\/]+']);
+    Route::miss(function() {
+        return json([
+            "code" => 0,
+            "msg" => '路由不存在',
+            "data" => new stdClass()
+        ]);
+    });
 });
-
-Route::get('hello/:name', 'index/hello');
