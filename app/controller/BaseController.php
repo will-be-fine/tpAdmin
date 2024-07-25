@@ -1,8 +1,9 @@
 <?php
 declare (strict_types = 1);
 
-namespace app;
+namespace app\controller;
 
+use app\traits\JsonReturn;
 use think\App;
 use think\exception\ValidateException;
 use think\Validate;
@@ -12,6 +13,8 @@ use think\Validate;
  */
 abstract class BaseController
 {
+    use JsonReturn;
+
     /**
      * Request实例
      * @var \think\Request

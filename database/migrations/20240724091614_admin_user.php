@@ -45,6 +45,7 @@ class AdminUser extends Migrator
             ->addColumn('avatar', 'string', ['length' => 100, 'default' => '', 'comment' => '头像'])
             ->addColumn('is_super_manager', 'boolean', ['length' => 4, 'default' => 2, 'comment' => '是否超管.2=否,1=是'])
             ->addColumn('status', 'boolean', ['length' => 4, 'default' => 1, 'comment' => '状态.2.禁用,1.正常'])
+            ->addColumn('is_deleted', 'boolean', ['length' => 4, 'default' => 0, 'comment' => '状态.0.正常,1.已删除'])
             ->addColumn('login_time', 'datetime', ['null' => 1, 'comment' => '登录时间'])
             ->addColumn('login_ip', 'string', ['length' => 255, 'default' => '', 'comment' => '登录IP'])
             ->addColumn('create_time', 'datetime', ['null' => 1, 'comment' => '创建时间'])
