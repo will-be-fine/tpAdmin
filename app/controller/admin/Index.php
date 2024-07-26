@@ -3,7 +3,7 @@ namespace app\controller\admin;
 
 use app\controller\BaseController;
 
-class Test extends BaseController
+class Index extends BaseController
 {
     public function index()
     {
@@ -11,8 +11,5 @@ class Test extends BaseController
         return "hello admin";
     }
 
-    public function hello($name = 'ThinkPHP6')
-    {
-        return 'hello,' . $name;
-    }
+
 }

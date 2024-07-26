@@ -13,6 +13,8 @@ namespace app\controller\admin;
 // use app\validate\admin\user\Login;
 // use app\validate\admin\user\singleEdit;
 
+use app\service\admin\AuthServiceFacade;
+use app\service\admin\UserServiceFacade;
 use think\Exception;
 use think\facade\Config;
 use think\facade\Db;
@@ -41,6 +43,23 @@ class AdminUser extends CommonController
         $data = $this->model->getPageData($where,$limit);
 
         return $this->success('数据获取成功', $data);
+    }
+ 
+    public function loginInfo(){
+
+       $loginUserInfo = UserServiceFacade::getUserInfo();
+//        $authList = AuthServiceFacade::getAuthList($loginUserInfo['id']);
+        $loginUserInfo = [
+            'avatar_file'=>'',
+            'nickname'=>'123'
+        ];
+        $authList = [];
+        return $this->success('获取成功', [
+            'user'=>$loginUserInfo,
+            'authList'=>$authList,
+            'pluginConf'=>['editor'=>['ueditor', 'meditor']],
+        ]);
+
     }
 
 }

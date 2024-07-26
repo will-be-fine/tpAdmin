@@ -39,7 +39,7 @@ class User
 
         $userId = intval($data['user_id']);
         if ($userId > 0) {
-            $user = \app\model\admin\User::with(['avatar_file'])->findOrEmpty($userId);
+            $user = \app\model\AdminUser::findOrEmpty($userId);
             if (!$user) {
                 $this->setError('账号不存在，请重新登录');
                 return false;

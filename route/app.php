@@ -10,6 +10,12 @@
 // +----------------------------------------------------------------------
 use think\facade\Route;
 
+
+//Route::get('admin/:pathInfo', 'v1/admin/:pathInfo')
+//    ->option([
+//        'ext'   => 'html'
+//]);
+
 // adminapi子域名路由指定
 Route::domain('localadminapi',function () {
     Route::rule('/:pathInfo', '/admin.:pathInfo')->pattern(['pathInfo'=>'[\w\.\/]+']);
@@ -21,3 +27,5 @@ Route::domain('localadminapi',function () {
         ]);
     });
 });
+
+

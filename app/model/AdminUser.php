@@ -13,7 +13,7 @@ class AdminUser extends BaseModel
     protected $order = ['id'=>'desc'];
 
     public function getPageData($where,$limit){
-        return $this->where($where)->where(['is_delete'=>0])->order($this->order)
+        return $this->where($where)->where(['is_deleted'=>0])->order($this->order)
             ->paginate($limit)->toArray();
     }
 
