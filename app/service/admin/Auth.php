@@ -114,14 +114,14 @@ class Auth
         $user    = $userId ? \app\model\admin\User::findOrEmpty($userId) : UserServiceFacade::getUser();
         //当前后台管理员如果是超级管理员，则拥有所有的权限列表
         if ($user->is_super_manager === 1) {
-            $result = \app\model\admin\Menu::where($where)->select()->toArray();
+            $result = \app\model\admin\AdminMenu::where($where)->select()->toArray();
         } else {
             //如果不是超级管理员，先查询拥有哪些角色，通过角色查询出权限节点列表
             $adminUserId    = $user->id;
             $roleIds        = \app\model\admin\role\User::where('admin_user_id', '=', $adminUserId)->column('admin_role_id');
             $menuIds        = \app\model\admin\menu\Role::where('admin_role_id', 'in', $roleIds)->column('admin_menu_id');
             $where[]        = ['id', 'in', $menuIds];
-            $result         = \app\model\admin\Menu::where($where)->select()->toArray();
+            $result         = \app\model\admin\AdminMenu::where($where)->select()->toArray();
         }
         return $result;
     }

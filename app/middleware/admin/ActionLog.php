@@ -6,7 +6,7 @@ namespace app\middleware\admin;
 
 use app\model\admin\action\Log;
 use app\middleware\BaseMiddleware;
-use app\model\admin\Menu;
+use app\model\admin\AdminMenu;
 use app\service\admin\UserServiceFacade;
 use think\Request;
 
@@ -34,11 +34,11 @@ class ActionLog extends BaseMiddleware
 
         $rule  = $request->url();
         $menu  = '';
-        $menus = Menu::where('rule', '=', $rule)->order('pid', 'asc')->select()->toArray();
+        $menus = AdminMenu::where('rule', '=', $rule)->order('pid', 'asc')->select()->toArray();
         if ($menus) {
             for ($i = 1; $i <= 4; $i++) {
                 if ($menus[0]['pid']) {
-                    $tempMenu = Menu::where('id', '=', $menus[0]['pid'])->find();
+                    $tempMenu = AdminMenu::where('id', '=', $menus[0]['pid'])->find();
                     if ($tempMenu) {
                         $tempMenu = $tempMenu->toArray();
                         array_unshift($menus, $tempMenu);
