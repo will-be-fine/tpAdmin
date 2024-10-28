@@ -2,8 +2,8 @@
 
 namespace app\service\admin;
 
-use library\Token;
 use app\traits\Error;
+use library\Token;
 
 /**
  * 后台用户服务实现者
@@ -39,7 +39,7 @@ class User
 
         $userId = intval($data['user_id']);
         if ($userId > 0) {
-            $user = \app\model\AdminUser::findOrEmpty($userId);
+            $user = \app\model\User::findOrEmpty($userId);
             if (!$user) {
                 $this->setError('账号不存在，请重新登录');
                 return false;
@@ -84,7 +84,6 @@ class User
         $data        = $this->_user->toArray();
         $allowFields = $this->getAllowFields();
         $userInfo    = array_intersect_key($data, array_flip($allowFields));
-        $userInfo['avatar_file'] = $data['avatar_file'];
         $userInfo    = array_merge($userInfo, ['token' => $this->_token]);
         return $userInfo;
     }

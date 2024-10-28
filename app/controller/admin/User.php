@@ -10,19 +10,18 @@ namespace app\controller\admin;
 
 // use app\validate\admin\user\Add;
 // use app\validate\admin\user\Edit;
-// use app\validate\admin\user\Login;
-// use app\validate\admin\user\singleEdit;
-
 use app\service\admin\AuthServiceFacade;
 use app\service\admin\UserServiceFacade;
 use app\service\ConfServiceFacade;
-//use app\validate\admin\user\Login;
+use app\validate\admin\user\Login;
 use library\Random;
-use library\Token;
-use think\Exception;
-use think\facade\Config;
-use think\facade\Db;
 use think\facade\Cache;
+use think\facade\Config;
+use library\Token;
+
+// use app\validate\admin\user\singleEdit;
+
+//use app\validate\admin\user\Login;
 
 /**
  * 后台管理员控制器
@@ -32,14 +31,14 @@ class User extends CommonController
 
     protected $model;//当前模型对象
     protected $noNeedLogin = ['login', 'logout','sendMobileCode','mobileLogin'];
-    protected $noNeedAuth = ['loginInfo', 'singleEdit'];
+    protected $noNeedAuth = ['loginInfo', 'singleEdit','login'];
 
     protected function _initialize()
     {
-        $this->model = new \app\model\AdminUser();
+        $this->model = new \app\model\User();
     }
 
-    public function pageData()
+    public function index()
     {
         $where = [];
         $limit = $this->request->param('limit', 10);
@@ -52,6 +51,7 @@ class User extends CommonController
     public function login(){
         //获取表单提交数据
         $param = $this->request->post();
+
         //是否手机号登录
         if(ConfServiceFacade::get('system.basic.loginNeedMobile', 0)==1){
             $mobile = $param['mobile'];
@@ -70,8 +70,10 @@ class User extends CommonController
             }
 
             //设置登录信息
-            $loginUserInfo = \app\model\admin\User::where('mobile', '=', $mobile)
+            $loginUserInfo = \app\model\User::where('mobile', '=', $mobile)
                 ->with(['avatar_file'])->field(UserServiceFacade::getAllowFields())->findOrEmpty();
+
+
             if(!$loginUserInfo->id){
                 return $this->error('手机号不存在');
             }
@@ -92,9 +94,10 @@ class User extends CommonController
 //                ]);
                 return $this->error($validate->getError());
             }
+
             //设置登录信息
-            $loginUserInfo = \app\model\AdminUser::where('username', '=', $param['username'])
-                ->with(['avatar_file'])->field(UserServiceFacade::getAllowFields())->findOrEmpty();
+            $loginUserInfo = \app\model\User::where('username', '=', $param['username'])
+                ->field(UserServiceFacade::getAllowFields())->findOrEmpty();
         }
 
 

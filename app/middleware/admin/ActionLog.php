@@ -6,7 +6,7 @@ namespace app\middleware\admin;
 
 use app\model\admin\action\Log;
 use app\middleware\BaseMiddleware;
-use app\model\admin\AdminMenu;
+use app\model\AdminMenu;
 use app\service\admin\UserServiceFacade;
 use think\Request;
 

@@ -111,10 +111,10 @@ class Auth
     public function getAuthList($userId = 0)
     {
         $where[] = ['is_show', '=', 1];
-        $user    = $userId ? \app\model\admin\User::findOrEmpty($userId) : UserServiceFacade::getUser();
+        $user    = $userId ? \app\model\User::findOrEmpty($userId) : UserServiceFacade::getUser();
         //当前后台管理员如果是超级管理员，则拥有所有的权限列表
         if ($user->is_super_manager === 1) {
-            $result = \app\model\admin\AdminMenu::where($where)->select()->toArray();
+            $result = \app\model\AdminMenu::where($where)->select()->toArray();
         } else {
             //如果不是超级管理员，先查询拥有哪些角色，通过角色查询出权限节点列表
             $adminUserId    = $user->id;
