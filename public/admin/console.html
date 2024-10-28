@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>控制面板</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- 主 题 更 换 -->
+    <style id="laytpadmin-bg-color"></style>
+</head>
+<body class="laytp-container" style="display:none;">
+<div>
+    <div class="layui-row layui-col-space10">
+
+<!--        <div class="layui-col-xs6 layui-col-md3">-->
+<!--            <div class="layui-card top-panel">-->
+<!--                <div class="layui-card-body">-->
+<!--                    <div class="layui-row layui-col-space5" id="refund_goods_box">-->
+<!--                        <div class="layui-col-xs8 layui-col-md8 top-panel-number" style="color: #28333E;font-size: 20px;" >-->
+<!--                            待退货-->
+<!--                        </div>-->
+<!--                        <div class="layui-col-xs4 layui-col-md4 top-panel-number" id="refund_goods_count">0-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="layui-col-xs6 layui-col-md3">-->
+<!--            <div class="layui-card top-panel">-->
+<!--                <div class="layui-card-body">-->
+<!--                    <div class="layui-row layui-col-space5" id="refund_money_box">-->
+<!--                        <div class="layui-col-xs8 layui-col-md8 top-panel-number" style="color: #28333E;font-size: 20px;" >-->
+<!--                            待退款-->
+<!--                        </div>-->
+<!--                        <div class="layui-col-xs4 layui-col-md4 top-panel-number" id="refund_money_count">0-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <div class="layui-col-xs6 layui-col-md3">
+            <div class="layui-card top-panel">
+                <div class="layui-card-body">
+                    <div class="layui-row layui-col-space5" id="delivery_count_box">
+                        <div class="layui-col-xs8 layui-col-md8 top-panel-number" style="color: #28333E;font-size: 20px;" >
+                            待发货
+                        </div>
+                        <div class="layui-col-xs4 layui-col-md4 top-panel-number" id="delivery_count">0
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="layui-col-xs6 layui-col-md3">
+            <div class="layui-card top-panel">
+                <div class="layui-card-body">
+                    <div class="layui-row layui-col-space5" id="putshelves_box">
+                        <div class="layui-col-xs8 layui-col-md8 top-panel-number" style="color: #28333E;font-size: 20px;" >
+                            待上架
+                        </div>
+                        <div class="layui-col-xs4 layui-col-md4 top-panel-number" id="putshelves_count">0
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-xs6 layui-col-md3">
+            <div class="layui-card top-panel">
+                <div class="layui-card-body">
+                    <div class="layui-row layui-col-space5" id="warehouse_in_box">
+                        <div class="layui-col-xs8 layui-col-md8 top-panel-number" style="color: #28333E;font-size: 20px;" >
+                            待入仓
+                        </div>
+                        <div class="layui-col-xs4 layui-col-md4 top-panel-number" id="warehouse_in_count">0
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-xs6 layui-col-md3">
+            <div class="layui-card top-panel">
+                <div class="layui-card-body">
+                    <div class="layui-row layui-col-space5" id="warehouse_out_box">
+                        <div class="layui-col-xs8 layui-col-md8 top-panel-number" style="color: #28333E;font-size: 20px;" >
+                            待出仓
+                        </div>
+                        <div class="layui-col-xs4 layui-col-md4 top-panel-number" id="warehouse_out_count">0
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-col-xs6 layui-col-md3">
+            <div class="layui-card top-panel">
+                <div class="layui-card-body">
+                    <div class="layui-row layui-col-space5" id="tiktok_warehouse_out_box">
+                        <div class="layui-col-xs8 layui-col-md8 top-panel-number" style="color: #28333E;font-size: 20px;" >
+                            待出仓(抖音)
+                        </div>
+                        <div class="layui-col-xs4 layui-col-md4 top-panel-number" id="tiktok_warehouse_out_count">0
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-col-xs6 layui-col-md3">
+            <div class="layui-card top-panel">
+                <div class="layui-card-body">
+                    <div class="layui-row layui-col-space5" id="operate_box">
+                        <div class="layui-col-xs8 layui-col-md8 top-panel-number" style="color: #28333E;font-size: 20px;" >
+                            待处理
+                        </div>
+                        <div class="layui-col-xs4 layui-col-md4 top-panel-number" id="operate_count">0
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-row layui-col-space10">
+<!--        <div class="layui-col-md8">-->
+<!--            <div class="layui-card" style="display: none">-->
+<!--                <div class="layui-card-body">-->
+<!--                    <div class="layui-tab custom-tab layui-tab-brief" lay-filter="docDemoTabBrief">-->
+<!--                        <div id="echarts-records" style="background-color:#ffffff;min-height:400px;padding: 10px"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-card">-->
+<!--                <div class="layui-card-header">操作日志</div>-->
+<!--                <div class="layui-card-body">-->
+<!--                    <dl class="layuiadmin-card-status" id="action_log_box">-->
+
+<!--                    </dl>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header">更新公告</div>
+                <div class="layui-card-body">
+                    <ul class="list" id="system_log_box">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    if(localStorage.getItem("staticDomain")){
+        document.write("<link rel='stylesheet' href='" + localStorage.getItem("staticDomain") + "/component/layui/css/layui.css?v=" + localStorage.getItem("version") + "'>");
+        document.write("<script src='" + localStorage.getItem("staticDomain") + "/component/layui/layui.js?v="+localStorage.getItem("version")+"'><\/script>");
+        document.write("<script src='" + localStorage.getItem("staticDomain") + "/component/laytp/layuiConfig.js?v="+localStorage.getItem("version")+"'><\/script>");
+    }else{
+        document.write("<link rel='stylesheet' href='/static/component/layui/css/layui.css?v=" + localStorage.getItem("version") + "'>");
+        document.write("<script src='/static/component/layui/layui.js?v="+localStorage.getItem("version")+"'><\/script>");
+        document.write("<script src='/static/component/laytp/layuiConfig.js?v="+localStorage.getItem("version")+"'><\/script>");
+    }
+</script>
+<script>
+    layui.use(['layer', 'echarts', 'element', 'count','laytp'], function() {
+        var delivery_count =0,putshelves_count =0,refund_goods_count =0,refund_money_count =0,warehouse_out_count =0,warehouse_in_count =0,operate_count =0;
+
+        let form = layui.form;
+        var $ = layui.jquery,
+            layer = layui.layer,
+            element = layui.element,
+            count = layui.count,
+            echarts = layui.echarts;
+
+        $('#putshelves_box').click(function(){
+            layer.open({
+                type: 2,
+                title: '待上架',
+                shadeClose: true,
+                shade: 0.8,
+                maxmin: true, //开启最大化最小化按钮
+                area: ['90%', '80%'],
+                content: '/admin/warehouse/inbound/wait.html'
+            });
+        })
+
+        $('#warehouse_in_box').click(function(){
+            layer.open({
+                type: 2,
+                title: '商品入仓',
+                shadeClose: true,
+                shade: 0.8,
+                maxmin: true, //开启最大化最小化按钮
+                area: ['70%', '80%'],
+                content: '/admin/warehouse/inbound/warehousein.html'
+            });
+        })
+
+        $('#warehouse_out_box').click(function(){
+            layer.open({
+                type: 2,
+                title: '商品出仓',
+                shadeClose: true,
+                shade: 0.8,
+                maxmin: true, //开启最大化最小化按钮
+                area: ['70%', '80%'],
+                content: '/admin/warehouse/outbound/warehouseout.html'
+            });
+        })
+
+        $('#tiktok_warehouse_out_box').click(function(){
+            layer.open({
+                type: 2,
+                title: '抖音出仓',
+                shadeClose: true,
+                shade: 0.8,
+                maxmin: true, //开启最大化最小化按钮
+                area: ['70%', '80%'],
+                content: '/admin/warehouse/tiktok/warehouseout.html'
+            });
+        })
+
+        $('#operate_box').click(function(){
+            layer.open({
+                type: 2,
+                title: '待处理',
+                shadeClose: true,
+                shade: 0.8,
+                maxmin: true, //开启最大化最小化按钮
+                area: ['70%', '80%'],
+                content: '/admin/warehouse/inventory/wait.html'
+            });
+        })
+
+        $(document).on('click', '.system_log_item', function(data){
+            var content = $(this).data('content');
+
+            console.log(content)
+            content = '<div style="white-space:pre-wrap;">'+content+'</div>';
+
+            layer.open({
+                type: 0,
+                title: '更新公告',
+                shadeClose: true,
+                shade: 0.8,
+                maxmin: true, //开启最大化最小化按钮
+                area: ['50%', '40%'],
+                content:content
+            });
+        })
+
+        facade.ajax({
+            route:'/admin.Common/console',
+            data: {},
+            successAlert: false,
+            showLoading: true
+        }).done(function(res){
+
+            var action_log_html = '';
+            for (var item in res.data.action_log_list){
+                action_log_html += '<dd><div class="layui-status-img"><a href="javascript:;">' +
+                    '<img style="width: 32px;height: 32px;border-radius: 50px;" src="/static/admin/images/avatar.jpg"></a></div>\n' +
+                    '<div><p>'+res.data.action_log_list[item].username+'  : '+res.data.action_log_list[item].menu+'</p><span>'+res.data.action_log_list[item].create_time+'</span></div></dd>';
+            }
+            $('#action_log_box').html(action_log_html);
+
+
+            var system_log_html = '';
+            for(var item in res.data.system_log_list){
+                system_log_html += '<li class="list-item system_log_item" data-content="'+res.data.system_log_list[item].content+'"><span class="title">'+res.data.system_log_list[item].title+'</span><span class="footer">'+res.data.system_log_list[item].create_date+'</span></li>\n';
+            }
+            $('#system_log_box').html(system_log_html);
+
+            delivery_count = res.data.delivery_count;
+            putshelves_count = res.data.putshelves_count;
+            refund_goods_count = res.data.refund_goods_count;
+            refund_money_count = res.data.refund_money_count;
+            warehouse_out_count = res.data.warehouse_out_count;
+            warehouse_in_count = res.data.warehouse_in_count;
+            tiktok_warehouse_out_count = res.data.tiktok_warehouse_out_count;
+            operate_count = res.data.operate_count;
+
+            // count.up("refund_goods_count", {
+            //     time: 500,
+            //     num: refund_goods_count,
+            //     bit: 0,
+            //     regulator: 50
+            // })
+            // count.up("refund_money_count", {
+            //     time: 500,
+            //     num: refund_money_count,
+            //     bit: 0,
+            //     regulator: 50
+            // })
+            count.up("delivery_count", {
+                time: 500,
+                num: delivery_count,
+                bit: 0,
+                regulator: 50
+            })
+            count.up("putshelves_count", {
+                time: 500,
+                bit: 0,
+                num: putshelves_count,
+                regulator: 50
+            })
+            count.up("warehouse_in_count", {
+                time: 500,
+                bit: 0,
+                num: warehouse_in_count,
+                regulator: 50
+            })
+            count.up("warehouse_out_count", {
+                time: 500,
+                bit: 0,
+                num: warehouse_out_count,
+                regulator: 50
+            })
+            count.up("tiktok_warehouse_out_count", {
+                time: 500,
+                bit: 0,
+                num: tiktok_warehouse_out_count,
+                regulator: 50
+            })
+            count.up("operate_count", {
+                time: 500,
+                bit: 0,
+                num: operate_count,
+                regulator: 50
+            })
+
+            return;
+        });
+
+
+        $('body').show();
+
+        var echartsRecords = echarts.init(document.getElementById('echarts-records'), 'walden');
+
+        var option = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['2019-01', '2019-02', '2019-03', '2019-04', '2019-05', '2019-06'],
+                axisLine: {
+                    lineStyle: {
+                        color: "#999"
+                    }
+                }
+            }],
+            yAxis: [{
+                type: 'value',
+                splitNumber: 4,
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed',
+                        color: '#DDD'
+                    }
+                },
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: "#333"
+                    },
+                },
+                nameTextStyle: {
+                    color: "#999"
+                },
+                splitArea: {
+                    show: false
+                }
+            }],
+            series: [{
+                name: '课时',
+                type: 'line',
+                data: [23, 60, 20, 36, 23, 85],
+                lineStyle: {
+                    normal: {
+                        width: 8,
+                        color: {
+                            type: 'linear',
+
+                            colorStops: [{
+                                offset: 0,
+                                color: '#A9F387' // 0% 处的颜色
+                            }, {
+                                offset: 1,
+                                color: '#48D8BF' // 100% 处的颜色
+                            }],
+                            globalCoord: false // 缺省为 false
+                        },
+                        shadowColor: 'rgba(72,216,191, 0.3)',
+                        shadowBlur: 10,
+                        shadowOffsetY: 20
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#fff',
+                        borderWidth: 10,
+                        /*shadowColor: 'rgba(72,216,191, 0.3)',
+                        shadowBlur: 100,*/
+                        borderColor: "#A9F387"
+                    }
+                },
+                smooth: true
+            }]
+        };
+        echartsRecords.setOption(option);
+
+        window.onresize = function() {
+            echartsRecords.resize();
+        }
+
+    });
+</script>
+</body>
+</html>

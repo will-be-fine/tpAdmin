@@ -2,7 +2,7 @@
 ## 网站配置
 logo: 
   ## 网站名称
-  title: "闪小白"
+  title: "tpAdmin"
   ## 网站图标
   image: "/static/admin/images/favicon.ico"
 ## 菜单配置
