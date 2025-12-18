@@ -4,6 +4,6 @@
 *.log
 .env
 /.htaccess
-.htaccess
+*.htaccess
 /view
 /public/v1
