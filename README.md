@@ -42,7 +42,19 @@ composer install
 ```
 php think migrate:run
 ```
-6、运行
+6、puculic目录下 apache配置.htaccess
+```
+<IfModule mod_rewrite.c>
+  Options +FollowSymlinks -Multiviews
+  RewriteEngine On
+
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [L,E=PATH_INFO:$1]
+</IfModule>
+```
+
+7、运行
 进入命令行下面，执行下面指令
 ```
 php think run -p 80
